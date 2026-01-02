@@ -1,130 +1,74 @@
-require ["fileinto", "body"]; 
-
-if allof (
-  anyof (
-    header :contains "Subject" [
-      "Thank you for applying",
-      "Thank you for your application",
-      "Thanks for applying",
-      "Application received",
-      "Your application has been received",
-      "Thank you for your interest",
-      "Tak for din ansøgning",
-      "Mange tak for din ansøgning",
-      "Din ansøgning er modtaget",
-      "Tak for din interesse",
-      "Tak for din Ansogning",     /* No-diacritic variant */
-      "Tak for din Ansøgning"
-    ],
-    body :contains [
-      "Thank you for applying",
-      "Thank you for your application",
-      "Thanks for applying",
-      "Your application has been received",
-      "we will review your application",
-      "we’ll review your application",
-      "we will contact you soon",
-      "Thank you for your interest",
-      "Tak for din ansøgning",
-      "Mange tak for din ansøgning",
-      "Din ansøgning er modtaget",
-      "Vi har modtaget din ansøgning",
-      "Vi gennemgår din ansøgning",
-      "Tak for din interesse",
-      "Vi vender tilbage"
-    ]
-  ),
-  not anyof (
-    header :contains "Subject" [
-      "rejected",
-      "reject",
-      "declined",
-      "decline",
-      "unsuccessful",
-      "unfortunately",
-      "regret to inform",
-      "we regret",
-      "not moving forward",
-      "going in another direction",
-      "afslag",
-      "desværre",
-      "desvaerre",
-      "ikke gå videre",
-      "ikke ga videre",
-      "gået videre med andre",
-      "gaet videre med andre",
-      "vi har valgt at gå videre med andre"
-    ],
-    body :contains [
-      "we regret to inform you",
-      "unfortunately we will not",
-      "not moving forward",
-      "we will not be moving forward",
-      "going in another direction",
-      "your application was not successful",
-      "we have decided not to proceed",
-      "after careful consideration we will not",
-      "afslag",
-      "desværre",
-      "desvaerre",
-      "vi har valgt at gå videre med andre",
-      "ikke gå videre",
-      "ikke ga videre",
-      "din ansøgning er desværre ikke gået videre",
-      "din ansogning er desvaerre ikke gaet videre",
-      "ikke kommet i betragtning"
-    ]
-  )
-) {
-  fileinto "Job Applications/Confirmations";
-  stop;
-} 
-
-Header-only fallback (if Proton doesn’t allow body)
-If your Sieve editor throws an error about body, use this version that checks only the Subject: 
-
+require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest"];
 require ["fileinto"]; 
 
+/* Do not run this filter on spam /
 if allof (
-  anyof (
-    header :contains "Subject" [
-      "Thank you for applying",
-      "Thank you for your application",
-      "Thanks for applying",
-      "Application received",
-      "Your application has been received",
-      "Thank you for your interest",
-      "Tak for din ansøgning",
-      "Mange tak for din ansøgning",
-      "Din ansøgning er modtaget",
-      "Tak for din interesse",
-      "Tak for din Ansogning",
-      "Tak for din Ansøgning"
-    ]
-  ),
-  not anyof (
-    header :contains "Subject" [
-      "rejected",
-      "reject",
-      "declined",
-      "decline",
-      "unsuccessful",
-      "unfortunately",
-      "regret to inform",
-      "we regret",
-      "not moving forward",
-      "going in another direction",
-      "afslag",
-      "desværre",
-      "desvaerre",
-      "ikke gå videre",
-      "ikke ga videre",
-      "gået videre med andre",
-      "gaet videre med andre",
-      "vi har valgt at gå videre med andre"
-    ]
-  )
+  environment :matches "vnd.proton.spam-threshold" "",
+  spamtest :value "ge" :comparator "i;ascii-numeric" "${1}"
 ) {
-  fileinto "Job Applications/Confirmations";
-  stop;
+  return;
 } 
+
+/** 
+
+    Job application confirmations (EN + DA), Subject-only.
+    Uses :matches with wildcards (*) to allow punctuation/extra words.
+    Excludes common rejection phrases.
+    Proton Sieve doesn’t support body matching.
+    @type and
+    @comparator matches (i;unicode-casemap)
+     /
+    if allof (
+      anyof (
+     header :comparator "i;unicode-casemap" :matches "Subject" [
+       "Thankyouforapplying",
+       "Thankyouforyourapplication",
+       "Thanksforapplying",
+       "Applicationreceived*",
+       "Yourapplicationhasbeenreceived",
+       "Wehavereceivedyourapplication",
+       "Thankyouforyourinterest",
+       "applicationsubmitted*",
+       "hasbeensubmitted",
+       "Takfordinansøgning*",
+       "Takfordinansogning*",
+       "Mangetakfordinansøgning",
+       "Ansøgningmodtaget*",
+       "Dinansøgningermodtaget*",
+       "Viharmodtagetdinansøgning",
+       "Takfordininteresse*"
+     ]
+      ),
+      not anyof (
+     header :comparator "i;unicode-casemap" :matches "Subject" [
+       "reject",
+       "declin",
+       "unsuccessful",
+       "unfortunately",
+       "regrettoinform",
+       "notmovingforward",
+       "notproceed*",
+       "anotherdirection*",
+       "notselected*",
+       "wewillnotbemovingforward*",
+       "afslag",
+       "desværre",
+       "desvaerre",
+       "ikkegåvidere",
+       "ikkegavidere",
+       "gåetvideremedandre*",
+       "gaetvideremedandre*",
+       "viharvalgtatgåvideremedandre*",
+       "ikkekommetibetragtning*"
+     ]
+      )
+    ) {
+      fileinto "Job Applications/Confirmations";
+      /* Choose ONE of the following:
+        If you use Folders and want it out of Inbox, keep only fileinto (no keep/stop needed).
+        If you use Labels or want a copy to remain in Inbox too, uncomment keep. */
+          // keep;
+          stop;
+        }
+         
+     
