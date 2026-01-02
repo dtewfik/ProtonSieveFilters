@@ -1,7 +1,7 @@
 require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest"];
 require ["fileinto"]; 
 
-/* Do not run this filter on spam /
+/* Do not run this filter on spam */
 if allof (
   environment :matches "vnd.proton.spam-threshold" "",
   spamtest :value "ge" :comparator "i;ascii-numeric" "${1}"
@@ -9,15 +9,13 @@ if allof (
   return;
 } 
 
-/** 
-
-    Job application confirmations (EN + DA), Subject-only.
+/*  Job application confirmations (EN + DA), Subject-only.
     Uses :matches with wildcards (*) to allow punctuation/extra words.
     Excludes common rejection phrases.
     Proton Sieve doesn’t support body matching.
     @type and
     @comparator matches (i;unicode-casemap)
-     /
+    */
     if allof (
       anyof (
      header :comparator "i;unicode-casemap" :matches "Subject" [
