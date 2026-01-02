@@ -67,7 +67,7 @@ if allof (
       /* Choose ONE of the following:
         If you use Folders and want it out of Inbox, keep only fileinto (no keep/stop needed).
         If you use Labels or want a copy to remain in Inbox too, uncomment keep. */
-          // keep;
+          keep;
           stop;
         }
          
