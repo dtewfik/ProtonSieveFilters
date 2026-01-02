@@ -19,55 +19,54 @@ if allof (
     if allof (
       anyof (
      header :comparator "i;unicode-casemap" :matches "Subject" [
-       "Thankyouforapplying",
-       "Thankyouforyourapplication",
-       "Thanksforapplying",
-       "Applicationreceived*",
-       "Yourapplicationhasbeenreceived",
-       "Wehavereceivedyourapplication",
-       "Thankyouforyourinterest",
-       "applicationsubmitted*",
-       "hasbeensubmitted",
-       "Takfordinansøgning*",
-       "Takfordinansogning*",
-       "Mangetakfordinansøgning",
-       "Ansøgningmodtaget*",
-       "Dinansøgningermodtaget*",
-       "Viharmodtagetdinansøgning",
-       "Takfordininteresse*"
+      "*Thank*you*for*applying*",
+      "*Thank*you*for*your*application*",
+      "*Thanks*for*applying*",
+      "*Application*received*",
+      "*Your*application*has*been*received*",
+      "*We*have*received*your*application*",
+      "*Thank*you*for*your*interest*",
+      "*application*submitted*",
+      "*has*been*submitted*",
+      "*Tak*for*din*ansøgning*",
+      "*Tak*for*din*ansogning*",
+      "*Mange*tak*for*din*ansøgning*",
+      "*Ansøgning*modtaget*",
+      "*Din*ansøgning*er*modtaget*",
+      "*Vi*har*modtaget*din*ansøgning*",
+      "*Tak*for*din*interesse*"
      ]
       ),
       not anyof (
      header :comparator "i;unicode-casemap" :matches "Subject" [
-       "reject",
-       "declin",
-       "unsuccessful",
-       "unfortunately",
-       "regrettoinform",
-       "notmovingforward",
-       "notproceed*",
-       "anotherdirection*",
-       "notselected*",
-       "wewillnotbemovingforward*",
-       "afslag",
-       "desværre",
-       "desvaerre",
-       "ikkegåvidere",
-       "ikkegavidere",
-       "gåetvideremedandre*",
-       "gaetvideremedandre*",
-       "viharvalgtatgåvideremedandre*",
-       "ikkekommetibetragtning*"
+      "*reject*",
+      "*declin*",
+      "*unsuccessful*",
+      "*unfortunately*",
+      "*regret*to*inform*",
+      "*not*moving*forward*",
+      "*not*proceed*",
+      "*another*direction*",
+      "*not*selected*",
+      "*we*will*not*be*moving*forward*",
+      "*afslag*",
+      "*desværre*",
+      "*desvaerre*",
+      "*ikke*gå*videre*",
+      "*ikke*ga*videre*",
+      "*gået*videre*med*andre*",
+      "*gaet*videre*med*andre*",
+      "*vi*har*valgt*at*gå*videre*med*andre*",
+      "*ikke*kommet*i*betragtning*"
      ]
       )
     ) {
-      fileinto "Confirmations";
+    addflag "\\Seen";
+  fileinto "Confirmations";
       /* Choose ONE of the following:
         If you use Folders and want it out of Inbox, keep only fileinto (no keep/stop needed).
         If you use Labels or want a copy to remain in Inbox too, uncomment keep. */
-      keep;
-      addflag "\\Seen";
-          stop;
+  keep;
+  stop;
         }
          
-     
