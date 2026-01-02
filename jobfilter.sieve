@@ -1,5 +1,5 @@
 require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest"];
-require ["fileinto"]; 
+require ["fileinto", "imap4flags"];       
 
 /* Do not run this filter on spam */
 if allof (
@@ -61,11 +61,12 @@ if allof (
      ]
       )
     ) {
-      fileinto "Job Applications/Confirmations";
+      fileinto "Confirmations";
       /* Choose ONE of the following:
         If you use Folders and want it out of Inbox, keep only fileinto (no keep/stop needed).
         If you use Labels or want a copy to remain in Inbox too, uncomment keep. */
-          keep;
+      keep;
+      addflag "\\Seen";
           stop;
         }
          
