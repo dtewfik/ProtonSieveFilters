@@ -1,0 +1,130 @@
+require ["fileinto", "body"]; 
+
+if allof (
+  anyof (
+    header :contains "Subject" [
+      "Thank you for applying",
+      "Thank you for your application",
+      "Thanks for applying",
+      "Application received",
+      "Your application has been received",
+      "Thank you for your interest",
+      "Tak for din ansøgning",
+      "Mange tak for din ansøgning",
+      "Din ansøgning er modtaget",
+      "Tak for din interesse",
+      "Tak for din Ansogning",     /* No-diacritic variant */
+      "Tak for din Ansøgning"
+    ],
+    body :contains [
+      "Thank you for applying",
+      "Thank you for your application",
+      "Thanks for applying",
+      "Your application has been received",
+      "we will review your application",
+      "we’ll review your application",
+      "we will contact you soon",
+      "Thank you for your interest",
+      "Tak for din ansøgning",
+      "Mange tak for din ansøgning",
+      "Din ansøgning er modtaget",
+      "Vi har modtaget din ansøgning",
+      "Vi gennemgår din ansøgning",
+      "Tak for din interesse",
+      "Vi vender tilbage"
+    ]
+  ),
+  not anyof (
+    header :contains "Subject" [
+      "rejected",
+      "reject",
+      "declined",
+      "decline",
+      "unsuccessful",
+      "unfortunately",
+      "regret to inform",
+      "we regret",
+      "not moving forward",
+      "going in another direction",
+      "afslag",
+      "desværre",
+      "desvaerre",
+      "ikke gå videre",
+      "ikke ga videre",
+      "gået videre med andre",
+      "gaet videre med andre",
+      "vi har valgt at gå videre med andre"
+    ],
+    body :contains [
+      "we regret to inform you",
+      "unfortunately we will not",
+      "not moving forward",
+      "we will not be moving forward",
+      "going in another direction",
+      "your application was not successful",
+      "we have decided not to proceed",
+      "after careful consideration we will not",
+      "afslag",
+      "desværre",
+      "desvaerre",
+      "vi har valgt at gå videre med andre",
+      "ikke gå videre",
+      "ikke ga videre",
+      "din ansøgning er desværre ikke gået videre",
+      "din ansogning er desvaerre ikke gaet videre",
+      "ikke kommet i betragtning"
+    ]
+  )
+) {
+  fileinto "Job Applications/Confirmations";
+  stop;
+} 
+
+Header-only fallback (if Proton doesn’t allow body)
+If your Sieve editor throws an error about body, use this version that checks only the Subject: 
+
+require ["fileinto"]; 
+
+if allof (
+  anyof (
+    header :contains "Subject" [
+      "Thank you for applying",
+      "Thank you for your application",
+      "Thanks for applying",
+      "Application received",
+      "Your application has been received",
+      "Thank you for your interest",
+      "Tak for din ansøgning",
+      "Mange tak for din ansøgning",
+      "Din ansøgning er modtaget",
+      "Tak for din interesse",
+      "Tak for din Ansogning",
+      "Tak for din Ansøgning"
+    ]
+  ),
+  not anyof (
+    header :contains "Subject" [
+      "rejected",
+      "reject",
+      "declined",
+      "decline",
+      "unsuccessful",
+      "unfortunately",
+      "regret to inform",
+      "we regret",
+      "not moving forward",
+      "going in another direction",
+      "afslag",
+      "desværre",
+      "desvaerre",
+      "ikke gå videre",
+      "ikke ga videre",
+      "gået videre med andre",
+      "gaet videre med andre",
+      "vi har valgt at gå videre med andre"
+    ]
+  )
+) {
+  fileinto "Job Applications/Confirmations";
+  stop;
+} 
