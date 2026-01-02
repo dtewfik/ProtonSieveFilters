@@ -1,0 +1,232 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/dtewfik/Library/Application Support/Sublime Text 3/Packages/User/sieve.sublime-syntax",
+		"/Users/dtewfik/Documents/GitHub/ProtonSieveFilters/jobfilter.sieve",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Sieve.sublime-syntax",
+		"/Users/dtewfik/Documents/GitHub/ProtonSieveFilters/Jobapplicationfilter.txt",
+		"/Users/dtewfik/Desktop/Jobapplicationfilter.txt",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/hubspot_site_export_Tue_Dec_02_13_05_49_UTC_2025/com/timelog/en/value-drops/design-pro.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Brain Notes/Clippings/Keep a Changelog.md",
+		"/Users/dtewfik/Desktop/temp.json",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Help.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Lars - Emil new.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Bjorn - James new.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Ruth - Pernille.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Ezra - Vlad.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Gunther - Jacques.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Splice - Rasmus.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Knud.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Gunther.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Ezra.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Rasmus.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/D&D/Ruth.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Rename.sh",
+		"/Users/dtewfik/gpt_api_env/newRequest.py",
+		"/Users/dtewfik/gpt_api_env/newRequest,py",
+		"/Users/dtewfik/gpt_api_env/importopenai.py",
+		"/Users/dtewfik/Desktop/New Webpage/css.css",
+		"/Users/dtewfik/Desktop/import openai.py",
+		"/Users/dtewfik/Desktop/New Webpage/index.html",
+		"/Users/dtewfik/Desktop/SWOTTOWS.csv",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/G-Map-Leads-Finder-v1.5.1/public/lib/js/request.js",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/G-Map-Leads-Finder-v1.5.1/manifest.json",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/G-Map-Leads-Finder-v1.5.1/ijsource.html",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/Downloads/G-Map-Leads-Finder-v1.5.1/Content.js",
+		"/Users/dtewfik/Downloads/clean_statistics.sh",
+		"/Users/dtewfik/Downloads/ConnectO365Services.ps1",
+		"/Users/dtewfik/Downloads/health-macos-swiftui-example-master/README.md",
+		"/Users/dtewfik/Downloads/Theme-ColorBrewer v.2.1/theme.json",
+		"/Users/dtewfik/Downloads/Theme-ColorBrewer v.2.1/theme-colorbrewer.qext",
+		"/Users/dtewfik/Downloads/messages.mbox",
+		"/Volumes/SensibleSideButtons/SensibleSideButtons.app/Contents/_CodeSignature/CodeResources",
+		"/Volumes/SensibleSideButtons/SensibleSideButtons.app/Contents/Info.plist",
+		"/Users/dtewfik/Downloads/ProtonClient-main/README.md",
+		"/Users/dtewfik/Downloads/Har Files are not possible for iOS",
+		"/Users/dtewfik/Downloads/faelles.csv",
+		"/Users/dtewfik/Library/Mobile Documents/com~apple~CloudDocs/coffee.txt",
+		"/Users/dtewfik/Desktop/Error Logs",
+		"/Users/dtewfik/Desktop/untitled.csv",
+		"/Users/dtewfik/web/pages/login/index.vue",
+		"/Users/dtewfik/Downloads/se.gothenburg.ovpn.com.conf",
+		"/Users/dtewfik/Downloads/45.12.221.163surfshark_openvpn_udp.ovpn",
+		"/Users/dtewfik/Desktop/Untitled.conf",
+		"/Users/dtewfik/Desktop/Console"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 98.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "jobfilter.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 301.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
