@@ -20,6 +20,7 @@ if allof (
       anyof (
      header :comparator "i;unicode-casemap" :matches "Subject" [
       "*Thank*you*for*applying*",
+      "*your*application*was*sent*",
       "*Thank*you*for*your*application*",
       "*Thanks*for*applying*",
       "*Application*received*",
@@ -34,7 +35,9 @@ if allof (
       "*Ansøgning*modtaget*",
       "*Din*ansøgning*er*modtaget*",
       "*Vi*har*modtaget*din*ansøgning*",
-      "*Tak*for*din*interesse*"
+      "*Tak*for*din*interesse*",
+      "*great*that*you’re*interested*",
+      "*you*just*applied*"
      ]
       ),
       not anyof (
@@ -57,6 +60,7 @@ if allof (
       "*gået*videre*med*andre*",
       "*gaet*videre*med*andre*",
       "*vi*har*valgt*at*gå*videre*med*andre*",
+      "*Regarding*your*application",
       "*ikke*kommet*i*betragtning*"
      ]
       )
