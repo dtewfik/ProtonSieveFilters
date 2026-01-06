@@ -1,6 +1,5 @@
 require ["include", "environment", "variables", "relational", "comparator-i;ascii-numeric", "spamtest"];
-require ["fileinto"];
-
+require ["fileinto", "imap4flags"];       
 /* Do not run on spam */
 if allof (
   environment :matches "vnd.proton.spam-threshold" "*",
@@ -13,7 +12,12 @@ if allof (
 if allof (
   anyof (
     header :comparator "i;unicode-casemap" :matches "Subject" [
-      "*regarding*your*application*"
+      "*regarding*your*application*",
+      "*An*update*on*your*application*",
+      "*Thank*you*for*your*job*application*",
+      "*Your*candidacy*update*",
+      "*Your*application*to*",
+      "*Update*regarding*your*application*"
     ]
   )
 ) {
