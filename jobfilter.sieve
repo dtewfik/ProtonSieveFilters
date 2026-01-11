@@ -16,7 +16,9 @@ if allof (
     @type and
     @comparator matches (i;unicode-casemap)
     */
-    if allof (
+    if anyof (
+  /* Path 1: existing positives minus rejections */
+    allof (
       anyof (
      header :comparator "i;unicode-casemap" :matches "Subject" [
       "*Thank*you*for*applying*",
@@ -64,9 +66,20 @@ if allof (
       "*ikke*kommet*i*betragtning*"
      ]
       )
+        ),
+
+/* Path 2: OR group — from noreply@thehub.io AND subject contains “Your application for” */
+  allof (
+    address :comparator "i;unicode-casemap" :is "from" "noreply@thehub.io",
+    header  :comparator "i;unicode-casemap" :contains "Subject" "Your application for"
+    /* If you prefer wildcard matching:
+       header :comparator "i;unicode-casemap" :matches "Subject" "*Your*application*for*" */
+  )
+
+
     ) {
     addflag "\\Seen";
-  fileinto "Confirmations";
+    fileinto "Confirmations";
       /* Choose ONE of the following:
         If you use Folders and want it out of Inbox, keep only fileinto (no keep/stop needed).
         If you use Labels or want a copy to remain in Inbox too, uncomment keep. */
