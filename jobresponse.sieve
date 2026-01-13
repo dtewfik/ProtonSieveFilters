@@ -19,7 +19,12 @@ if allof (
       "*Your*application*to*",
       "*Update*regarding*your*application*"
     ]
-  )
+  ),
+  not anyof (
+     header :comparator "i;unicode-casemap" :matches "Subject" [
+      "*Your*application*was*sent*to*"
+     ]
+      )
 ) {
     addflag "\\Seen";
     fileinto "Responses";
