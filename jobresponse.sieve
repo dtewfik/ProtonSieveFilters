@@ -17,7 +17,8 @@ if allof (
       "*Thank*you*for*your*job*application*",
       "*Your*candidacy*update*",
       "*Your*application*to*",
-      "*Update*regarding*your*application*"
+      "*Update*regarding*your*application*",
+      "Update*on*Application*"
     ]
   ),
   not anyof (
